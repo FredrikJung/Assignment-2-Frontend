@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Att göra</title>
+    <link rel="stylesheet" href="styling.css" />
+  </head>
+  <body>
+    <div id="root">
+      <h1>Att göra applikation</h1>
+      <div class="add-form-box">
+        <label for="inputName">Ange aktiviteten namn</label>
+        <input id="inputName" type="text" value="" />
+        <div class="date-category-container">
+          <div class="date-box">
+            <label for="inputDate">Aktivitetens datum</label>
+            <input id="inputDate" type="date" value="" />
+          </div>
+          <div class="category-box">
+            <label for="categories">Välj kategori</label>
+            <select name="categories" id="categories">
+              <option value="Hushåll">Hushåll</option>
+              <option value="Jobb">Jobb</option>
+              <option value="Studier">Studier</option>
+              <option value="Fritid">Fritid</option>
+            </select>
+          </div>
+        </div>
+        <div class="button-box">
+          <button class="add-button" onclick="createActivity()">
+            Lägg till
+          </button>
+        </div>
+      </div>
+      <div class="filter-box">
+        <div class="filter-text-box">
+          <label for="inputFilter">Filtrera på:</label>
+          <input id="inputFilter" type="text" value="" />
+        </div>
+        <div class="filter-radiobuttons-box">
+          <input type="radio" id="all-button" name="filter-button" value="" />
+          <label for="all-button">Alla</label>
+          <input
+            type="radio"
+            id="houshold-button"
+            name="filter-button"
+            value=""
+          />
+          <label for="houshold-button">Hushåll</label>
+          <input type="radio" id="work-button" name="filter-button" value="" />
+          <label for="work-button">Jobb</label>
+          <input
+            type="radio"
+            id="studies-button"
+            name="filter-button"
+            value=""
+          />
+          <label for="studies-button">Studier</label>
+          <input
+            type="radio"
+            id="sparetime-button"
+            name="filter-button"
+            value=""
+          />
+          <label for="sparetime-button">Fritid</label>
+        </div>
+      </div>
+      <h2>Att göra lista:</h2>
+      <div class="todo-list-container">
+        <div class="todo-list-header">
+          <span class="activity-header">Aktivitet</span>
+          <span class="date-header">Datum</span>
+          <span class="category-header">Kategori</span>
+          <span class="empty-header">tomt</span>
+        </div>
+        <div class="todo-list-item">
+          <span class="activity-item">Städa lägenheten</span>
+          <span class="date-item">2022-12-17</span>
+          <span class="category-item">Hushåll</span>
+          <button class="remove-button" onclick="removeActivity()">
+            Ta bort
+          </button>
+        </div>
+        <div class="todo-list-item">
+          <span class="activity-item">Fixa slutrapport</span>
+          <span class="date-item">2022-01-04</span>
+          <span class="category-item">Jobb</span>
+          <button class="remove-button" onclick="removeActivity()">
+            Ta bort
+          </button>
+        </div>
+        <div class="todo-list-item">
+          <span class="activity-item">Lämna in tenta</span>
+          <span class="date-item">2022-12-20</span>
+          <span class="category-item">Studier</span>
+          <button class="remove-button" onclick="removeActivity()">
+            Ta bort
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="myjavascript.js"></script>
+  </body>
+</html>
