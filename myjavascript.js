@@ -40,28 +40,28 @@ function createActivity()
 
 function removeActivity()
 {
-    let item = document.querySelector(".todo-list-item");
-    item.addEventListener('click', function handleClick(event){
+    //let item = document.querySelector(".todo-list-item");
+    //item.addEventListener('click', function handleClick(event){
         //console.log(event.target);
-        item.remove();
-    })
+        //item.remove();
+   //})
 
     //let removeTodoListItem = document.querySelector(".todo-list-item");
     //console.log(removeTodoListItem);
     //removeTodoListItem.remove();
 
 
-    //let parent = document.getElementsByClassName("todo-list-container")[0];
-    //console.log(parent);
+    let parent = document.getElementsByClassName("todo-list-container")[0];
+    console.log(parent);
 
-    //let child = parent.getElementsByTagName("div");
-    //console.log(child);
+    let child = parent.getElementsByTagName("div")[1];
+    console.log(child);
 
     //let arr = [...child];
    
     //console.log(arr);
 
-    //parent.removeChild(child);
+    parent.removeChild(child);
 
 }
 
