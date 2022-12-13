@@ -29,6 +29,7 @@ function createActivity()
     let todoListItemRemoveBtn = document.createElement("button");
     todoListItemRemoveBtn.classList.add("remove-button");
     todoListItemRemoveBtn.innerText = btnText;
+    todoListItemRemoveBtn.onclick = removeActivity;
 
     //Lägger till Subelementen till grundelementen
     todoListItem.appendChild(todoListItemName);
