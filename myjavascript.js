@@ -32,8 +32,8 @@ function createActivity()
   
     let todoListEl = document.querySelector(".todo-list-container");
 
-    if (inputName != "")
-    {
+    if (inputName == "") return;
+
     let todoListItem = document.createElement("div");
     todoListItem.classList.add("todo-list-item");
     todoListEl.appendChild(todoListItem);
@@ -66,7 +66,7 @@ function createActivity()
     todoListItem.appendChild(todoListItemRemoveBtn);
 
     document.querySelector("#inputName").value = "";
-    }
+
 }
 
 addEventListener("keypress", function(event)
