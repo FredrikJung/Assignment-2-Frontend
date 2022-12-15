@@ -37,32 +37,52 @@
       <div class="filter-box">
         <div class="filter-text-box">
           <label for="inputFilter"> <strong>Filtrera på:</strong> </label>
-          <input id="inputFilter" type="text" value="" />
+          <input
+            onkeyup="filterActivities(value)"
+            id="inputFilter"
+            type="text"
+            value=""
+          />
         </div>
         <div class="filter-radiobuttons-box">
-          <input type="radio" id="all-button" name="filter-button" value="" />
+          <input
+            onchange="filterActivitiesRadioButtons(this)"
+            type="radio"
+            id="all-button"
+            name="filter-button"
+            value="Alla"
+          />
           <label for="all-button">Alla</label>
           <input
+            onchange="filterActivitiesRadioButtons(this)"
             type="radio"
             id="houshold-button"
             name="filter-button"
-            value=""
+            value="Hushåll"
           />
           <label for="houshold-button">Hushåll</label>
-          <input type="radio" id="work-button" name="filter-button" value="" />
+          <input
+            onchange="filterActivitiesRadioButtons(this)"
+            type="radio"
+            id="work-button"
+            name="filter-button"
+            value="Jobb"
+          />
           <label for="work-button">Jobb</label>
           <input
+            onchange="filterActivitiesRadioButtons(this)"
             type="radio"
             id="studies-button"
             name="filter-button"
-            value=""
+            value="Studier"
           />
           <label for="studies-button">Studier</label>
           <input
+            onchange="filterActivitiesRadioButtons(this)"
             type="radio"
             id="sparetime-button"
             name="filter-button"
-            value=""
+            value="Fritid"
           />
           <label for="sparetime-button">Fritid</label>
         </div>
@@ -77,27 +97,21 @@
         </div>
         <div class="todo-list-item">
           <span class="activity-item">Städa lägenheten</span>
-          <span class="date-item">2022-12-17</span>
+          <span class="date-item">2022-12-11</span>
           <span class="category-item">Hushåll</span>
-          <button class="remove-button" onclick="removeActivity()">
-            Ta bort
-          </button>
+          <button class="remove-button">Ta bort</button>
         </div>
         <div class="todo-list-item">
           <span class="activity-item">Fixa slutrapport</span>
           <span class="date-item">2022-01-04</span>
           <span class="category-item">Jobb</span>
-          <button class="remove-button" onclick="removeActivity()">
-            Ta bort
-          </button>
+          <button class="remove-button">Ta bort</button>
         </div>
         <div class="todo-list-item">
           <span class="activity-item">Lämna in tenta</span>
-          <span class="date-item">2022-12-20</span>
+          <span class="date-item">2022-12-29</span>
           <span class="category-item">Studier</span>
-          <button class="remove-button" onclick="removeActivity()">
-            Ta bort
-          </button>
+          <button class="remove-button">Ta bort</button>
         </div>
       </div>
     </div>

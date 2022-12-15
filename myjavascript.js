@@ -1,68 +1,118 @@
+const addBtn = document.querySelector(".add-button");
+const btnText = "Ta bort";
+
+let todayDate = new Date().toLocaleDateString();
+document.querySelector("#inputDate").value = todayDate;
+
+let activityDates = document.getElementsByClassName("date-item");
+let a = 0;
+for (item of activityDates){
+    if(activityDates[a].innerText < todayDate){
+        activityDates[a].style.color = "red";
+    }
+    a++;
+}
+
+document.querySelector("#all-button").checked = true;
+
+let todoListItemRemoveBtns = document.getElementsByClassName("remove-button");
+let i = 0;
+for (item of todoListItemRemoveBtns) {
+    todoListItemRemoveBtns[i].addEventListener("click", function(){
+        this.parentNode.remove();
+    });
+    i++;
+}
 
 function createActivity()
 {
-    const btnText = "Ta bort";
-
-    //Hämtar värdena
     let inputName = document.querySelector("#inputName").value;
     let inputDate = document.querySelector("#inputDate").value;
     let categories = document.querySelector("#categories").value;
-
-    
+  
     let todoListEl = document.querySelector(".todo-list-container");
 
-    //Skapar grundelementet
+    if (inputName != "")
+    {
     let todoListItem = document.createElement("div");
     todoListItem.classList.add("todo-list-item");
     todoListEl.appendChild(todoListItem);
 
-    //Skapar Subelementen
     let todoListItemName = document.createElement("span");
     todoListItemName.classList.add("activity-item");
     todoListItemName.innerText = inputName;
+
     let todoListItemDate = document.createElement("span");
     todoListItemDate.classList.add("date-item");
     todoListItemDate.innerText = inputDate;
+    if(inputDate < todayDate){
+        todoListItemDate.style.color = "red";
+    }
+
     let todoListItemCategory = document.createElement("span");
     todoListItemCategory.classList.add("category-item");
     todoListItemCategory.innerText = categories;
+
     let todoListItemRemoveBtn = document.createElement("button");
     todoListItemRemoveBtn.classList.add("remove-button");
     todoListItemRemoveBtn.innerText = btnText;
-    todoListItemRemoveBtn.onclick = removeActivity;
+    todoListItemRemoveBtn.addEventListener("click", function(){
+        this.parentNode.remove();
+    })
 
-    //Lägger till Subelementen till grundelementen
     todoListItem.appendChild(todoListItemName);
     todoListItem.appendChild(todoListItemDate);
     todoListItem.appendChild(todoListItemCategory);
     todoListItem.appendChild(todoListItemRemoveBtn);
 
+    document.querySelector("#inputName").value = "";
+    }
 }
 
-function removeActivity()
+addEventListener("keypress", function(event)
 {
-    //let item = document.querySelector(".todo-list-item");
-    //item.addEventListener('click', function handleClick(event){
-        //console.log(event.target);
-        //item.remove();
-   //})
+    if(event.key === "Enter")
+    {
+        addBtn.click();
+    }
+});
 
-    //let removeTodoListItem = document.querySelector(".todo-list-item");
-    //console.log(removeTodoListItem);
-    //removeTodoListItem.remove();
+function filterActivities(filterValue) 
+{ 
+    let todoListItems = document.querySelectorAll(".todo-list-item");
 
-
-    let parent = document.getElementsByClassName("todo-list-container")[0];
-    console.log(parent);
-
-    let child = parent.getElementsByTagName("div")[1];
-    console.log(child);
-
-    //let arr = [...child];
-   
-    //console.log(arr);
-
-    parent.removeChild(child);
-
+    todoListItems.forEach((listItem) => {
+        const itemName = listItem.querySelector(".activity-item").innerText;
+        
+        if(itemName.indexOf(filterValue) < 0)
+        {
+            listItem.classList.add("hide");
+        }
+        else
+        {
+            listItem.classList.remove("hide");
+        } 
+    }); 
 }
 
+function filterActivitiesRadioButtons(radioValue) 
+{
+    let todoListItems = document.querySelectorAll(".todo-list-item");
+
+    todoListItems.forEach((listItem) => 
+    {
+        let itemName = listItem.querySelector(".category-item").innerText;
+        if (itemName == radioValue.value)
+        {
+            listItem.classList.remove("hide-radio");
+        }
+        else
+        {
+            listItem.classList.add("hide-radio");
+        }
+        if (radioValue.value == "Alla")
+        {
+            listItem.classList.remove("hide-radio");
+        }
+    });
+}

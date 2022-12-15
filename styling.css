@@ -157,3 +157,11 @@ h2 {
 .remove-button {
 
 }
+
+.hide {
+    display: none;
+}
+
+.hide-radio {
+    display: none;
+}
